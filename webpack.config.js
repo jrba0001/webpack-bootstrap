@@ -8,10 +8,52 @@ let scssLoaders = [];
 if (isProduction) {
     scssLoaders = ExtractTextPlugin.extract({
         fallback: 'style-loader',
-        use: ['css-loader?url=false&sourceMap=true', 'sass-loader?sourceMap=true']
+        use: [
+                {
+                // Interprets `@import` and `url()` like `import/require()` and will resolve them
+                loader: 'css-loader?url=false&sourceMap=true'
+            },
+                {
+                // Loader for webpack to process CSS with PostCSS
+                loader: 'postcss-loader',
+                options: {
+                    plugins: function () {
+                        return [
+                            require('autoprefixer')
+                        ];
+                    }
+                }
+            },
+            {
+                // Loads a SASS/SCSS file and compiles it to CSS
+                loader: 'sass-loader?sourceMap=true'
+            }
+        ]
     });
 } else {
-    scssLoaders = ['style-loader', 'css-loader?url=false&sourceMap=true', 'sass-loader?sourceMap=true'];
+    scssLoaders = [{
+        // Adds CSS to the DOM by injecting a `<style>` tag
+        loader: 'style-loader'
+    },
+    {
+        // Interprets `@import` and `url()` like `import/require()` and will resolve them
+        loader: 'css-loader'
+    },
+    {
+        // Loader for webpack to process CSS with PostCSS
+        loader: 'postcss-loader',
+        options: {
+            plugins: function () {
+            return [
+                require('autoprefixer')
+            ];
+            }
+        }
+    },
+    {
+        // Loads a SASS/SCSS file and compiles it to CSS
+        loader: 'sass-loader'
+    }];
 }
 
 module.exports = {
@@ -29,7 +71,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.scss$/,
+                test: /\.(scss)$/,
                 use: scssLoaders
             }, {
                 test: /\.js$/,

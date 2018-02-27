@@ -1,0 +1,15 @@
+@import "mixins/transparent-background";
+
+.web-header {
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 0 5px $shadow-color;
+    margin: 0 0 30px 0;
+    @include transparent-background(white);
+
+    .web-title {
+        color: $brand-color;
+        text-shadow: 0 1px 1px $shadow-color;
+    }
+
+}

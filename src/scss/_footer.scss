@@ -1,0 +1,9 @@
+@import "mixins/transparent-background";
+
+.web-footer {
+    text-align: center;
+    font-size: $font-size-small;
+    padding: 20px;
+    margin: 30px 0 0 0;
+    @include transparent-background(white);
+}

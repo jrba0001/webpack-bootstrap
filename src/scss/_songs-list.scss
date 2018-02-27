@@ -1,0 +1,65 @@
+@import "mixins/text-overflow-ellipsis";
+@import "mixins/responsive-utils";
+
+.songs-list {
+
+    margin: 0 auto; // centra un div horizontalmente (candidato de mixin)
+    max-width: $extra-large-device-width;
+
+    .song {
+        display: flex;
+        background: white;
+        margin: 10px;
+        box-shadow: 0 1px 5px $shadow-color;
+        border-radius: 5px;
+        overflow: hidden;
+        transition: $default-transition-time all;
+
+        @include if-is-small-device {
+            display: inline-block;
+            width: calc(50% - 20px);
+        }
+
+        @include if-is-medium-device {
+            width: calc(33% - 20px);
+        }
+
+        @include if-is-large-device {
+            width: calc(25% - 20px);
+        }
+
+        @include if-is-extra-large-device {
+            width: calc(20% - 20px);
+        }
+
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0 0 5px $shadow-color;
+        }
+        &:active {
+            box-shadow: 0 0 1px $shadow-color;
+        }
+
+        .cover {
+            flex: 1;
+            background: grey;
+        }
+
+        .info {
+            flex: 2;
+            margin: 15px;
+            overflow: hidden;
+            .artist {
+                margin-top: 10px;
+                font-size: $font-size-small;
+                @include text-overflow-ellipsis;
+            }
+            .title {
+                font-weight: bold;
+                @include text-overflow-ellipsis;
+            }
+        }
+
+    }
+
+}

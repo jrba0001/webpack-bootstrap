@@ -1,0 +1,29 @@
+// Estilos de los tags HTML genéricos
+body {
+    font-family: $main-font-family;
+    font-size: $font-size-base;
+    color: $main-text-color;
+    background: url('#{$images-path}doodles.png');
+}
+
+// Estilos de los títulos
+$titles-fonts-sizes: $font-size-h1, $font-size-h2, $font-size-h3, $font-size-h4, $font-size-h5, $font-size-h6;
+@for $i from 1 through length($titles-fonts-sizes) {
+    h#{$i} {
+        font-family: $title-font-family;
+        font-size: nth($titles-fonts-sizes, $i);
+    }
+}
+
+// Estilos de los enlaces
+a {
+    color: $links-color;
+    text-decoration: none;
+    &:hover {
+        color: $links-hover-color;
+        transition: all 0.25s;
+    }
+}
+
+// Elementos responsive
+img, video, embed, object { max-width: 100%; }

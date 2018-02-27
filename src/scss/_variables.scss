@@ -1,0 +1,42 @@
+// Variables de SASS
+
+// Paths
+$images-path: '../assets/img/';
+
+// Font families
+$main-font-family: 'Nunito', sans-serif;
+$title-font-family: 'Bree Serif', serif;
+
+// Font sizes
+$font-size-base: 18px;
+$font-size-small: $font-size-base - 5px;
+$font-size-large: $font-size-base + 5px;
+$font-size-h1: $font-size-base + 15px;
+$font-size-h2: $font-size-base + 12px;
+$font-size-h3: $font-size-base + 9px;
+$font-size-h4: $font-size-base + 6px;
+$font-size-h5: $font-size-base + 3px;
+$font-size-h6: $font-size-base;
+
+// Colors
+$color-mightly-slate: #556270;
+$color-pacifica: #4ECDC4;
+$color-apple-chic: #C7F464;
+$color-cheery-pink: #FF6B6B;
+$color-grandmas-pillow: #C44D58;
+
+// Main components colors
+$main-text-color: $color-mightly-slate;
+$links-color: $color-grandmas-pillow;
+$links-hover-color: $color-cheery-pink;
+$brand-color: $color-cheery-pink;
+$shadow-color: lighten(black, 30%);
+
+// Transitions
+$default-transition-time: 0.25s;
+
+// Responsive breakpoints
+$small-device-width: 376px;
+$medium-device-width: 576px;
+$large-device-width: 750px;
+$extra-large-device-width: 900px;
